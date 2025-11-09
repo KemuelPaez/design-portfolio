@@ -193,17 +193,35 @@
 		<div class="container">
 		<h3>Featured Projects</h3>
 		<div class="gallery">
-			<div class="tile">Project 1
-			<div class="tile-meta">Brand campaign • Graphics</div>
+			<div class="ad-showcase">
+				<h4>Social Media/Business Ad Designs</h4>
+				<div class="ad-gallery">
+					<img src="assets/beauty-ad.png" alt="Beauty Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/beauty-ad.png">
+					<img src="assets/business-ad.png" alt="Business Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/business-ad.png">
+					<img src="assets/coffee-ad.png" alt="Coffee Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/coffee-ad.png">
+					<img src="assets/flower-ad.png" alt="Flower Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/flower-ad.png">
+					<img src="assets/hiring-ad.png" alt="Hiring Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hiring-ad.png">
+					<img src="assets/hotel-ad.png" alt="Hotel Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hotel-ad.png">
+					<img src="assets/tech-ad.png" alt="Tech Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/tech-ad.png">
+				</div>
+				<div class="tile-meta">Different brand ad campaigns, Mostly designed in Canva and Photoshop.</div>
 			</div>
-			<div class="tile">Project 2
-			<div class="tile-meta">Video edit • Social</div>
+			<div class="tile">
+				<h4>Video Editing Samples</h4>
+				<div class="reel-gallery">
+					<video controls poster="assets/thumb-1.png" preload="metadata">
+						<source src="assets/Coffee Ad Reel.mp4" type="video/mp4">
+					</video>
+					<video controls poster="assets/thumb-2.png" preload="metadata">
+						<source src="assets/Motivational Reel.mp4" type="video/mp4">
+					</video>
+				</div>
+			<div class="tile-meta">Short-form video samples, created using Primiere Pro and Capcut.</div>
 			</div>
 			<div class="tile">Project 3
-			<div class="tile-meta">Social strategy</div>
+				<div class="tile-meta">Web Designs/Landing Page Samples</div>
 			</div>
 		</div>
-		<p class="small">Replace these placeholders with screenshots, video thumbnails, or links to case studies.</p>
 		</div>
 	</section>
 	<hr class="section-separator">
@@ -237,6 +255,21 @@
 		<small>© <span id="year"></span> Kemuel Kyle Paez ~ Designer</small>
 	</div>
 	</footer>
+
+	<!-- Ad Modal -->
+	<div class="modal fade" id="adModal" tabindex="-1" aria-labelledby="adModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="adModalLabel">Ad Design</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<img id="modalImage" src="" alt="Ad Image" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- Bootstrap JS bundle -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

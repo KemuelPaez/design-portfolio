@@ -88,3 +88,15 @@ if (hamburger && modalNav) {
 		}
 	});
 }
+
+// Ad modal functionality
+const adModal = document.getElementById('adModal');
+const modalImage = document.getElementById('modalImage');
+
+if (adModal && modalImage) {
+	adModal.addEventListener('show.bs.modal', (event) => {
+		const button = event.relatedTarget;
+		const imgSrc = button.getAttribute('data-img');
+		modalImage.src = imgSrc;
+	});
+}
