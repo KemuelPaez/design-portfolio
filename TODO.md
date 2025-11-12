@@ -1,3 +1,0 @@
-- [x] Modify index.html: Replace ad-showcase grid with Bootstrap carousel and modal for images
-- [x] Update styles/styles.css: Add styles for carousel, modal, hover effects, and animations
-- [x] Update script.js: Add any custom JS for modal interactions if needed
