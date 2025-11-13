@@ -92,11 +92,35 @@ if (hamburger && modalNav) {
 // Ad modal functionality
 const adModal = document.getElementById('adModal');
 const modalImage = document.getElementById('modalImage');
+const adModalLabel = document.getElementById('adModalLabel');
 
-if (adModal && modalImage) {
+if (adModal && modalImage && adModalLabel) {
 	adModal.addEventListener('show.bs.modal', (event) => {
 		const button = event.relatedTarget;
 		const imgSrc = button.getAttribute('data-img');
+		const adTitle = button.getAttribute('data-title');
 		modalImage.src = imgSrc;
+		adModalLabel.textContent = adTitle;
+	});
+}
+
+// Video modal functionality
+const videoModal = document.getElementById('videoModal');
+const modalVideo = document.getElementById('modalVideo');
+const videoModalLabel = document.getElementById('videoModalLabel');
+
+if (videoModal && modalVideo && videoModalLabel) {
+	videoModal.addEventListener('show.bs.modal', (event) => {
+		const button = event.relatedTarget;
+		const videoSrc = button.getAttribute('data-video');
+		const videoTitle = button.getAttribute('data-title');
+		modalVideo.src = videoSrc;
+		videoModalLabel.textContent = videoTitle;
+		modalVideo.play();
+	});
+
+	videoModal.addEventListener('hide.bs.modal', () => {
+		modalVideo.pause();
+		modalVideo.src = '';
 	});
 }

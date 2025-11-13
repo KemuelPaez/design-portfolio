@@ -196,24 +196,30 @@
 			<div class="ad-showcase">
 				<h4>Social Media/Business Ad Designs</h4>
 				<div class="ad-gallery">
-					<img src="assets/beauty-ad.png" alt="Beauty Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/beauty-ad.png">
-					<img src="assets/business-ad.png" alt="Business Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/business-ad.png">
-					<img src="assets/coffee-ad.png" alt="Coffee Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/coffee-ad.png">
-					<img src="assets/flower-ad.png" alt="Flower Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/flower-ad.png">
-					<img src="assets/hiring-ad.png" alt="Hiring Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hiring-ad.png">
-					<img src="assets/hotel-ad.png" alt="Hotel Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hotel-ad.png">
-					<img src="assets/tech-ad.png" alt="Tech Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/tech-ad.png">
+					<img src="assets/beauty-ad.png" alt="Beauty Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/beauty-ad.png" data-title="Beauty Ad">
+					<img src="assets/business-ad.png" alt="Business Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/business-ad.png" data-title="Business Ad">
+					<img src="assets/coffee-ad.png" alt="Coffee Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/coffee-ad.png" data-title="Coffee Ad">
+					<img src="assets/flower-ad.png" alt="Flower Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/flower-ad.png" data-title="Flower Ad">
+					<img src="assets/hiring-ad.png" alt="Hiring Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hiring-ad.png" data-title="Hiring Ad">
+					<img src="assets/hotel-ad.png" alt="Hotel Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hotel-ad.png" data-title="Hotel Ad">
+					<img src="assets/tech-ad.png" alt="Tech Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/tech-ad.png" data-title="Tech Ad">
 				</div>
 				<div class="tile-meta">Different brand ad campaigns, Mostly designed in Canva and Photoshop.</div>
 			</div>
 			<div class="tile">
 				<h4>Video Editing Samples</h4>
 				<div class="reel-gallery">
-					<video controls poster="assets/thumb-1.png" preload="metadata">
+					<video poster="assets/thumb-1.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Coffee Ad Reel.mp4" data-title="Coffee Ad Reel">
 						<source src="assets/Coffee Ad Reel.mp4" type="video/mp4">
 					</video>
-					<video controls poster="assets/thumb-2.png" preload="metadata">
+					<video poster="assets/thumb-2.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Motivational Reel.mp4" data-title="Motivational Reel">
 						<source src="assets/Motivational Reel.mp4" type="video/mp4">
+					</video>
+					<video poster="assets/thumb-3.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Captioning_1.mp4" data-title="Captioning Sample">
+						<source src="assets/Captioning_1.mp4" type="video/mp4">
+					</video>
+					<video poster="assets/thumb-4.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/1914_truce.mp4" data-title="1914 Truce (2D Animation Sample)">
+						<source src="assets/1914_truce.mp4" type="video/mp4">
 					</video>
 				</div>
 			<div class="tile-meta">Short-form video samples, created using Primiere Pro and Capcut.</div>
@@ -266,6 +272,21 @@
 				</div>
 				<div class="modal-body">
 					<img id="modalImage" src="" alt="Ad Image" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Video Modal -->
+	<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="videoModalLabel"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<video id="modalVideo" controls class="img-fluid" style="width: 100%; height: auto;"></video>
 				</div>
 			</div>
 		</div>

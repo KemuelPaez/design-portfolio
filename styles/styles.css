@@ -87,6 +87,16 @@ body {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+/* Video Modal Text Color */
+#videoModal .modal-title {
+  color: black;
+}
+
+/* Ad Modal Text Color */
+#adModal .modal-title {
+  color: black;
+}
+
 .modal-nav.active {
   opacity: 1;
   visibility: visible;
@@ -425,6 +435,14 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+#modalVideo {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .reel-gallery video:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(192, 132, 252, 0.3);
@@ -525,4 +543,8 @@ body {
   .logo{word-wrap:break-word;}
   .hero-text h2{font-size:1.5rem;}
   .tool-cards{grid-template-columns:repeat(auto-fit,minmax(100px,1fr));}
+  .reel-gallery{flex-wrap:wrap; gap:0.5rem;}
+  .reel-gallery video {flex:1 1 120px; max-width:120px; height:213px;}
+  .ad-gallery{grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:0.5rem;}
+  .ad-gallery img{height:120px;}
 }
