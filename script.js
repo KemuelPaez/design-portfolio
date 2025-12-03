@@ -124,3 +124,53 @@ if (videoModal && modalVideo && videoModalLabel) {
 		modalVideo.src = '';
 	});
 }
+
+// Horizontal scroll controls for the reel gallery (left / right buttons)
+document.querySelectorAll('.reel-gallery-wrapper').forEach(wrapper => {
+	const track = wrapper.querySelector('.reel-gallery');
+	const btnLeft = wrapper.querySelector('.scroll-btn.left');
+	const btnRight = wrapper.querySelector('.scroll-btn.right');
+	if (!track || !btnLeft || !btnRight) return;
+
+	const getScrollDistance = () => Math.max(track.clientWidth * 0.8, 300);
+
+	const updateButtons = () => {
+		// small delay to ensure smooth scroll updated
+		setTimeout(() => {
+			btnLeft.disabled = track.scrollLeft <= 5;
+			btnRight.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
+			btnLeft.style.opacity = btnLeft.disabled ? '0.35' : '1';
+			btnRight.style.opacity = btnRight.disabled ? '0.35' : '1';
+		}, 120);
+	};
+
+	btnLeft.addEventListener('click', () => {
+		track.scrollBy({ left: -getScrollDistance(), behavior: 'smooth' });
+		updateButtons();
+	});
+
+	btnRight.addEventListener('click', () => {
+		track.scrollBy({ left: getScrollDistance(), behavior: 'smooth' });
+		updateButtons();
+	});
+
+	// Update when user scrolls with wheel/trackpad
+	track.addEventListener('scroll', () => {
+		updateButtons();
+	});
+
+	// Make wrapper focusable and support arrow keys
+	wrapper.setAttribute('tabindex', '0');
+	wrapper.addEventListener('keydown', (e) => {
+		if (e.key === 'ArrowRight') {
+			track.scrollBy({ left: getScrollDistance(), behavior: 'smooth' });
+			updateButtons();
+		} else if (e.key === 'ArrowLeft') {
+			track.scrollBy({ left: -getScrollDistance(), behavior: 'smooth' });
+			updateButtons();
+		}
+	});
+
+	// init
+	updateButtons();
+});
