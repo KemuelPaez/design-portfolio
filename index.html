@@ -15,6 +15,41 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="styles/styles.css" />
 	<meta name="description" content="Portfolio showcasing graphics design, video editing and social media management." />
+	<style>
+		/* Responsive embed: fluid width up to 1010px, 16:9 aspect ratio */
+		.video-embeds {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+		}
+		.video-embeds .embed-frame {
+			width: 100%;
+			max-width: 1010px;       /* maintain width on desktop */
+			position: relative;
+			padding-top: 56.25%;     /* 16:9 aspect ratio fallback */
+			margin: 0;
+		}
+		.video-embeds .embed-frame iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+			display: block;
+		}
+		/* Small spacing for titles */
+		.video-embeds h5 {
+			width: 100%;
+			max-width: 1010px;
+			margin: 0.5rem 0 0.25rem;
+		}
+		/* Ensure embeds don't overflow container padding on small screens */
+		@media (max-width: 420px) {
+			.video-embeds .embed-frame { padding-top: 56.25%; }
+		}
+	</style>
 </head>
 <body>
 	<header class="site-header">
@@ -158,6 +193,98 @@
 	</section>
 	<hr class="section-separator">
 
+	<section class="work" id="work">
+		<div class="container">
+		<h3>Featured Projects</h3>
+		<div class="showcase-container">
+			<div id="ad-designs" class="showcase ad-showcase">
+				<h4>Social Media/Business Ad Designs</h4>
+				<div class="ad-gallery">
+					<img src="assets/beauty-ad.png" alt="Beauty Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/beauty-ad.png" data-title="Beauty Ad">
+					<img src="assets/business-ad.png" alt="Business Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/business-ad.png" data-title="Business Ad">
+					<img src="assets/coffee-ad.png" alt="Coffee Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/coffee-ad.png" data-title="Coffee Ad">
+					<img src="assets/flower-ad.png" alt="Flower Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/flower-ad.png" data-title="Flower Ad">
+					<img src="assets/hiring-ad.png" alt="Hiring Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hiring-ad.png" data-title="Hiring Ad">
+					<img src="assets/hotel-ad.png" alt="Hotel Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hotel-ad.png" data-title="Hotel Ad">
+					<img src="assets/tech-ad.png" alt="Tech Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/tech-ad.png" data-title="Tech Ad">
+				</div>
+				<div class="tile-meta">Different brand ad campaigns, Mostly designed in Canva and Photoshop.</div>
+			</div>
+			<div id="video-edits" class="showcase">
+				<h4>Short-Form Video Samples</h4>
+				<div class="reel-gallery-wrapper">
+					<button class="scroll-btn left">←</button>
+						<div class="reel-gallery">
+							<video poster="assets/thumb-3.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Business Ad Export.mp4" data-title="Reel Ad Sample">
+								<source src="assets/Business Ad Export.mp4" type="video/mp4">
+							</video>
+							<video poster="assets/thumb-8.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Real Estate Sample.mp4" data-title="Real Estate Sample">
+								<source src="assets/Real Estate Sample.mp4" type="video/mp4">
+							</video>
+							<video poster="assets/thumb-6.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Talking Head Sample.mp4" data-title="Talking Head Sample">
+								<source src="assets/Talking Head Sample.mp4" type="video/mp4">
+							</video>
+							<video poster="assets/thumb-9.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Food Ad Sample.mp4" data-title="Food Ad Sample">
+								<source src="assets/Food Ad Sample.mp4" type="video/mp4">
+							</video>
+							<video poster="assets/thumb-1.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Coffee Ad Reel.mp4" data-title="Coffee Ad Reel">
+								<source src="assets/Coffee Ad Reel.mp4" type="video/mp4">
+							</video>
+							<video poster="assets/thumb-2.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Motivational Reel.mp4" data-title="Motivational Reel">
+								<source src="assets/Motivational Reel.mp4" type="video/mp4">
+							</video>
+							<video poster="assets/thumb-7.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/There’s a Song That Lasts 1,000 Years.mp4" data-title="2D Animation Shorts">
+								<source src="assets/There’s a Song That Lasts 1,000 Years.mp4" type="video/mp4">
+							</video>
+							<video poster="assets/thumb-4.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/1914_truce.mp4" data-title="1914 Truce (2D Animation Sample)">
+								<source src="assets/1914_truce.mp4" type="video/mp4">
+							</video>
+							<!-- <video poster="assets/thumb-5.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Nuclear-Story.mp4" data-title="Nuclear Story (2D Sample)">
+								<source src="assets/Nuclear-Story.mp4" type="video/mp4">
+							</video> -->
+						</div>
+						<div class="tile-meta">Video samples, created using CapCut and Davinci Resolve.</div>
+					 <button class="scroll-btn right">→</button>
+    			</div>
+				<div class="video-embeds">
+					<div></div>
+					<h4>Long-Form Samples [cut into 2-4 mins]</h4>
+					<h5>Documentary Style Sample</h5>
+					<div class="embed-frame">
+						<iframe src="https://drive.google.com/file/d/1al90YyLnUWjhWsX2EMsHhhBbUQGhLV7P/preview" allowfullscreen></iframe>
+					</div>
+
+					<h5>Airline Rankings Sample</h5>
+					<div class="embed-frame">
+						<iframe src="https://drive.google.com/file/d/1FtEu7nw1t2ve0NhYAQcth4jji1kNj3xR/preview" allowfullscreen></iframe>
+					</div>
+
+					<h5>Documentary Sample 2</h5>
+					<div class="embed-frame">
+						<iframe src="https://www.youtube.com/embed/FJWKAOWLPmY?si=BQ-2zfFbuKMenreA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+
+					<h5>Casino Advertisement Sample</h5>
+					<div class="embed-frame">
+						<iframe src="https://drive.google.com/file/d/1pnJqa3JRA3YOBkdkVz5IQ37f5ejd1XWL/preview" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="tile-meta">Most samples are from clients who asked for a trial tasks and my own youtube channel.</div>
+			</div>
+			<div id="web-designs" class="showcase">
+				<h4>Web Designs/Landing Page Samples</h4>
+				<div class="web-gallery">
+					<img src="assets/portfolio-design.png" alt="Port Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/portfolio-design.png" data-title="Portfolio Design Created using HTML/CSS/JS">
+					<img src="assets/wix-design.png" alt="Wix Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/wix-design.png" data-title="Landing Page created using Wix">
+					<img src="assets/figma-designs.png" alt="Figma Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/figma-designs.png" data-title="Figma Web Design Samples">
+				</div>
+				<div class="tile-meta">Web design samples created using various tools and frameworks.</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<hr class="section-separator">
+
 	<section class="services" id="services">
 		<div class="container">
 		<h3>Services</h3>
@@ -203,74 +330,6 @@
 					<li>Website Optimization & Redesign</li>
 				</ul>
 			</article>
-		</div>
-		</div>
-	</section>
-	<hr class="section-separator">
-
-	<section class="work" id="work">
-		<div class="container">
-		<h3>Featured Projects</h3>
-		<div class="showcase-container">
-			<div id="ad-designs" class="showcase ad-showcase">
-				<h4>Social Media/Business Ad Designs</h4>
-				<div class="ad-gallery">
-					<img src="assets/beauty-ad.png" alt="Beauty Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/beauty-ad.png" data-title="Beauty Ad">
-					<img src="assets/business-ad.png" alt="Business Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/business-ad.png" data-title="Business Ad">
-					<img src="assets/coffee-ad.png" alt="Coffee Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/coffee-ad.png" data-title="Coffee Ad">
-					<img src="assets/flower-ad.png" alt="Flower Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/flower-ad.png" data-title="Flower Ad">
-					<img src="assets/hiring-ad.png" alt="Hiring Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hiring-ad.png" data-title="Hiring Ad">
-					<img src="assets/hotel-ad.png" alt="Hotel Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hotel-ad.png" data-title="Hotel Ad">
-					<img src="assets/tech-ad.png" alt="Tech Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/tech-ad.png" data-title="Tech Ad">
-				</div>
-				<div class="tile-meta">Different brand ad campaigns, Mostly designed in Canva and Photoshop.</div>
-			</div>
-			<div id="video-edits" class="showcase">
-				<h4>Video Editing Samples</h4>
-				<div class="reel-gallery-wrapper">
-					<button class="scroll-btn left">←</button>
-						<div class="reel-gallery">
-							<video poster="assets/thumb-3.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Business Ad Export.mp4" data-title="Reel Ad Sample">
-								<source src="assets/Business Ad Export.mp4" type="video/mp4">
-							</video>
-							<video poster="assets/thumb-8.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Real Estate Sample.mp4" data-title="Real Estate Sample">
-								<source src="assets/Real Estate Sample.mp4" type="video/mp4">
-							</video>
-							<video poster="assets/thumb-6.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Talking Head Sample.mp4" data-title="Talking Head Sample">
-								<source src="assets/Talking Head Sample.mp4" type="video/mp4">
-							</video>
-							<video poster="assets/thumb-9.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Food Ad Sample.mp4" data-title="Food Ad Sample">
-								<source src="assets/Food Ad Sample.mp4" type="video/mp4">
-							</video>
-							<video poster="assets/thumb-1.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Coffee Ad Reel.mp4" data-title="Coffee Ad Reel">
-								<source src="assets/Coffee Ad Reel.mp4" type="video/mp4">
-							</video>
-							<video poster="assets/thumb-2.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Motivational Reel.mp4" data-title="Motivational Reel">
-								<source src="assets/Motivational Reel.mp4" type="video/mp4">
-							</video>
-							<video poster="assets/thumb-7.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/There’s a Song That Lasts 1,000 Years.mp4" data-title="2D Animation Shorts">
-								<source src="assets/There’s a Song That Lasts 1,000 Years.mp4" type="video/mp4">
-							</video>
-							<video poster="assets/thumb-4.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/1914_truce.mp4" data-title="1914 Truce (2D Animation Sample)">
-								<source src="assets/1914_truce.mp4" type="video/mp4">
-							</video>
-							<!-- <video poster="assets/thumb-5.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Nuclear-Story.mp4" data-title="Nuclear Story (2D Sample)">
-								<source src="assets/Nuclear-Story.mp4" type="video/mp4">
-							</video> -->
-						</div>
-					 <button class="scroll-btn right">→</button>
-    			</div>
-				<div class="tile-meta">Video samples, created using CapCut and Davinci Resolve.</div>
-			</div>
-			<div id="web-designs" class="showcase">
-				<h4>Web Designs/Landing Page Samples</h4>
-				<div class="web-gallery">
-					<img src="assets/portfolio-design.png" alt="Port Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/portfolio-design.png" data-title="Portfolio Design Created using HTML/CSS/JS">
-					<img src="assets/wix-design.png" alt="Wix Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/wix-design.png" data-title="Landing Page created using Wix">
-					<img src="assets/figma-designs.png" alt="Figma Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/figma-designs.png" data-title="Figma Web Design Samples">
-				</div>
-				<div class="tile-meta">Web design samples created using various tools and frameworks.</div>
-			</div>
 		</div>
 		</div>
 	</section>
