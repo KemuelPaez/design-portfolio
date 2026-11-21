@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>Kem Design | Portfolio | Graphics Design</title>
+	<title>Kemuel Kyle Paez | Graphic Designer & Video Editor</title>
 	<link rel="icon" type="image/png" href="assets/favicon.png">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,106 +14,76 @@
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="styles/styles.css" />
-	<meta name="description" content="Portfolio showcasing graphics design, video editing and social media management." />
-	<style>
-		/* Responsive embed: fluid width up to 1010px, 16:9 aspect ratio */
-		.video-embeds {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 1rem;
-		}
-		.video-embeds .embed-frame {
-			width: 100%;
-			max-width: 1010px;       /* maintain width on desktop */
-			position: relative;
-			padding-top: 56.25%;     /* 16:9 aspect ratio fallback */
-			margin: 0;
-		}
-		.video-embeds .embed-frame iframe {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			border: 0;
-			display: block;
-		}
-		/* Small spacing for titles */
-		.video-embeds h5 {
-			width: 100%;
-			max-width: 1010px;
-			margin: 0.5rem 0 0.25rem;
-		}
-		/* Ensure embeds don't overflow container padding on small screens */
-		@media (max-width: 420px) {
-			.video-embeds .embed-frame { padding-top: 56.25%; }
-		}
-	</style>
+	<meta name="description" content="Kemuel Kyle Paez is a graphic designer, video editor, web designer, and social media creative based in the Philippines." />
+	<meta name="theme-color" content="#1e1b4b" />
+	<meta name="author" content="Kemuel Kyle Paez" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Kemuel Kyle Paez | Creative Portfolio" />
+	<meta property="og:description" content="Graphics design, video editing, social media content, and web design work by Kemuel Kyle Paez." />
+	<meta property="og:image" content="assets/self-picture.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
+	<a class="skip-link" href="#main-content">Skip to main content</a>
 	<header class="site-header">
 	<div class="container">
-		<button class="hamburger" id="hamburger">
-			<i class="fas fa-bars"></i>
+		<button class="hamburger" id="hamburger" type="button" aria-label="Open navigation" aria-controls="modal-nav" aria-expanded="false">
+			<i class="fas fa-bars" aria-hidden="true"></i>
 		</button>
-		<nav class="nav" id="nav">
+		<nav class="nav" id="nav" aria-label="Primary navigation">
 			<a href="#about">About</a>
-			<a href="#services">Services</a>
 			<a href="#work">Projects</a>
+			<a href="#services">Services</a>
 			<a href="#contact">Contact</a>
 		</nav>
-		<h1 class="logo"><span id="typewriter-name" data-name="Kemuel Kyle Paez"></span><span id="typewriter-titles" data-titles=" — Graphics Design | Social Media Management | Video Editing | Web Designer"></span><span class="cursor" aria-hidden="true">|</span></h1>
+		<h1 class="logo"><span id="typewriter-name" data-name="Kemuel Kyle Paez">Kemuel Kyle Paez</span><span id="typewriter-titles" data-titles=" — Graphics Design | Social Media Management | Video Editing | Web Designer"> — Graphics Design | Social Media Management | Video Editing | Web Designer</span><span class="cursor" aria-hidden="true">|</span></h1>
 	</div>
 	</header>
 
 	<!-- Modal Nav for Mobile -->
-	<div class="modal-nav" id="modal-nav">
-		<div class="modal-nav-content">
-			<button class="close-modal" id="close-modal">
-				<i class="fas fa-times"></i>
+	<div class="modal-nav" id="modal-nav" aria-hidden="true">
+		<div class="modal-nav-content" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+			<button class="close-modal" id="close-modal" type="button" aria-label="Close navigation">
+				<i class="fas fa-times" aria-hidden="true"></i>
 			</button>
-			<a href="#about">About</a>
-			<a href="#services">Services</a>
-			<a href="#work">Work</a>
-			<a href="#contact">Contact</a>
+			<nav aria-label="Mobile navigation">
+				<a href="#about">About</a>
+				<a href="#work">Work</a>
+				<a href="#services">Services</a>
+				<a href="#contact">Contact</a>
+			</nav>
 		</div>
 	</div>
 
-	<main>
+	<main id="main-content">
 	<section class="hero" id="home">
 		<div class="container hero-grid">
 			<div class="hero-text">
-				<h2 class="fade-in">Designs That Speak, Code That Connects</h2>
-				<p class="fade-in">I craft captivating visuals, dynamic video edits, and scroll-stopping social content.
-					With a strong eye for detail and a passion for storytelling, I transform ideas into designs that resonate and perform.
-					Whether it’s building a cohesive brand identity, editing engaging reels, or designing intuitive interfaces, I bring creativity and strategy together to make your vision stand out online.
-				</p>
+				<h2 class="fade-in">Creative work that earns attention.</h2>
+				<p class="fade-in">I’m a graphic designer and video editor creating purposeful brand visuals, scroll-stopping social content, and responsive web experiences. I combine strong visual direction with practical strategy to help businesses communicate clearly and stand out.</p>
 				<div class="cta-row fade-in" aria-label="Primary call to actions">
-					<a class="btn" href="#contact">Contact Me</a>
+					<a class="btn" href="#contact">Let’s Work Together</a>
 					<div class="project-ctas" role="group" aria-label="Project quick links">
 						<button class="btn ghost project-btn btn--neon btn--neon--blue" type="button" data-target="video-edits" aria-label="Go to Video Edits">
 							<span class="btn-label">Video Edits</span>
 						</button>
-
 						<button class="btn ghost project-btn btn--neon btn--neon--pink" type="button" data-target="ad-designs" aria-label="Go to Ad Designs">
 							<span class="btn-label">Ad Designs</span>
 						</button>
-
 						<button class="btn ghost project-btn btn--neon btn--neon--teal" type="button" data-target="web-designs" aria-label="Go to Web Designs">
 							<span class="btn-label">Web Designs</span>
 						</button>
 					</div>
 				</div>
-				<ul class="skills-inline fade-in">
-					<li>Graphics Design |</li>
-					<li>Video Editing |</li>
-					<li>Social Media Management |</li>
+				<ul class="skills-inline fade-in" aria-label="Core skills">
+					<li>Graphic Design</li>
+					<li>Video Editing</li>
+					<li>Social Media</li>
 					<li>Web Design</li>
 				</ul>
 			</div>
 			<div class="hero-image">
-				<img src="assets/self-picture.jpg" alt="Kemuel Kyle Paez - Designer" class="profile-image">
+				<img src="assets/self-picture.jpg" alt="Kemuel Kyle Paez, graphic designer and video editor" class="profile-image" width="420" height="400" fetchpriority="high">
 			</div>
 		</div>
 	</section>
@@ -123,29 +93,28 @@
 		<div class="container about-grid">
 			<div class="about-text">
 				<h3 class="fade-in">About me</h3>
-				<p class="fade-in">  I’m a passionate video editor/designer/developer who brings ideas to life through clear visuals, thoughtful motion, and purposeful strategy. I specialize in creating social-first content that not only looks great but drives engagement and results.</p>
-				<br>
-				<h5 class="fade-in">The tools I use in designing are:</h5>
+				<p class="fade-in">I’m a multidisciplinary designer and editor who turns ideas into clear, engaging, and conversion-focused content. My work spans brand visuals, social media campaigns, motion graphics, long-form video, and web design—always balancing creativity with the needs of the audience.</p>
+				<h5 class="fade-in">Design and editing tools</h5>
 				<div class="tool-cards fade-in">
 					<div class="tool-card">
-						<img src="https://gpng.net/wp-content/uploads/Capcut-Logo-Transparent-Free.png" alt="Illustrator icon">
-						<span>Capcut</span>
-						<span class="tooltip">My preferred tool</span>
+						<img src="https://gpng.net/wp-content/uploads/Capcut-Logo-Transparent-Free.png" alt="CapCut logo">
+						<span>CapCut</span>
+						<span class="tooltip">Preferred editing tool</span>
 					</div>
 					<div class="tool-card">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="Davinci icon">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve logo">
 						<span>DaVinci Resolve</span>
 					</div>
 					<div class="tool-card">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Adobe_Premiere_Pro_CC_2026_icon.svg/1280px-Adobe_Premiere_Pro_CC_2026_icon.svg.png" alt="Adobe Premiere icon">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Adobe_Premiere_Pro_CC_2026_icon.svg/1280px-Adobe_Premiere_Pro_CC_2026_icon.svg.png" alt="Adobe Premiere Pro logo">
 						<span>Adobe Premiere</span>
 					</div>
 					<div class="tool-card">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Adobe_Photoshop_CC_2026_icon.svg/250px-Adobe_Photoshop_CC_2026_icon.svg.png" alt="Photoshop icon">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Adobe_Photoshop_CC_2026_icon.svg/250px-Adobe_Photoshop_CC_2026_icon.svg.png" alt="Adobe Photoshop logo">
 						<span>Photoshop</span>
 					</div>
 					<div class="tool-card">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVvsHtm2-WOrnjXwFqRj0DnC3Gx13HLmP-A&s" alt="After Effects icon">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVvsHtm2-WOrnjXwFqRj0DnC3Gx13HLmP-A&s" alt="Canva logo">
 						<span>Canva</span>
 					</div>
 				</div>
@@ -175,16 +144,16 @@
 				<h5 class="fade-in">I also leverage AI tools for productive and fast workflow:</h5>
 				<div class="tool-cards fade-in">
 					<div class="tool-card">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/1/13/ChatGPT-Logo.png" alt="Facebook icon">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/1/13/ChatGPT-Logo.png" alt="ChatGPT logo">
 						<span>ChatGPT</span>
-						<span class="tooltip">My preferred AI tool</span>
+						<span class="tooltip">Preferred AI tool</span>
 					</div>
 					<div class="tool-card">
-						<img src="https://i.pinimg.com/736x/96/82/6c/96826cc153b5f2b00a8bb3ef0dedbdea.jpg" alt="Facebook icon">
+						<img src="https://i.pinimg.com/736x/96/82/6c/96826cc153b5f2b00a8bb3ef0dedbdea.jpg" alt="Google Gemini logo">
 						<span>Gemini</span>
 					</div>
 					<div class="tool-card">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjmJajFJdxJlZcy2iVli5r3CcFD6C2T1qQoA&s" alt="Facebook icon">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjmJajFJdxJlZcy2iVli5r3CcFD6C2T1qQoA&s" alt="GitHub Copilot logo">
 						<span>Copilot</span>
 					</div>
 				</div>
@@ -199,8 +168,9 @@
 		<div class="showcase-container">
 			<div id="video-edits" class="showcase">
 				<h4>Short-Form Video Samples</h4>
+				<p class="showcase-intro">Social-first edits for brands, real estate, food, events, and educational content.</p>
 				<div class="reel-gallery-wrapper">
-					<button class="scroll-btn left">←</button>
+					<button class="scroll-btn left" type="button" aria-label="Scroll video samples left">←</button>
 						<div class="reel-gallery">
 							<video poster="assets/thumb-3.png" preload="metadata" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="assets/Business Ad Export.mp4" data-title="Reel Ad Sample">
 								<source src="assets/Business Ad Export.mp4" type="video/mp4">
@@ -230,59 +200,58 @@
 								<source src="assets/Nuclear-Story.mp4" type="video/mp4">
 							</video> -->
 						</div>
-						<div class="tile-meta">Video samples, created using CapCut and Davinci Resolve.</div>
-					<button class="scroll-btn right">→</button>
-    			</div>
+						<button class="scroll-btn right" type="button" aria-label="Scroll video samples right">→</button>
+				</div>
+				<div class="tile-meta">Short-form video samples created with CapCut and DaVinci Resolve.</div>
 				<div class="video-embeds">
-					<div></div>
 					<h4>Long-Form Samples</h4>
 
 					<h5>Documentary Sample 1</h5>
 					<div class="embed-frame">
-						<iframe src="https://www.youtube.com/embed/wUMMsZVCG14?si=hDefFVnJMMOL9Y7K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/wUMMsZVCG14?si=hDefFVnJMMOL9Y7K" title="Documentary editing sample 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 					</div>
 					
 					<h5>Vlog Sample</h5>
 					<div class="embed-frame">
-						<iframe src="https://www.youtube.com/embed/IH0cWk5TM5E?si=ge248l5HALoikLNc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/IH0cWk5TM5E?si=ge248l5HALoikLNc" title="Vlog editing sample" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 					</div>
 
 					<h5>True Crime Sample</h5>
 					<div class="embed-frame">
-						<iframe src="https://drive.google.com/file/d/1al90YyLnUWjhWsX2EMsHhhBbUQGhLV7P/preview" allowfullscreen></iframe>
+						<iframe src="https://drive.google.com/file/d/1al90YyLnUWjhWsX2EMsHhhBbUQGhLV7P/preview" title="True crime long-form editing sample" loading="lazy" allowfullscreen></iframe>
 					</div>
 
 					<h5>Documentary Sample 2</h5>
 					<div class="embed-frame">
-						<iframe src="https://www.youtube.com/embed/CTkS0k3XHco?si=EcS9TnVUrPU5CvEd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/CTkS0k3XHco?si=EcS9TnVUrPU5CvEd" title="Documentary editing sample 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 					</div>
 
 					<h5>Airline Rankings Sample</h5>
 					<div class="embed-frame">
-						<iframe src="https://drive.google.com/file/d/1FtEu7nw1t2ve0NhYAQcth4jji1kNj3xR/preview" allowfullscreen></iframe>
+						<iframe src="https://drive.google.com/file/d/1FtEu7nw1t2ve0NhYAQcth4jji1kNj3xR/preview" title="Airline rankings editing sample" loading="lazy" allowfullscreen></iframe>
 					</div>
 				</div>
-				<div class="tile-meta">Most samples are from clients who asked for a trial tasks and my own youtube channel.</div>
+				<div class="tile-meta">Most samples are client trial tasks or work published on my YouTube channel.</div>
 			</div>
 			<div id="ad-designs" class="showcase ad-showcase">
 				<h4>Social Media/Business Ad Designs</h4>
 				<div class="ad-gallery">
-					<img src="assets/beauty-ad.png" alt="Beauty Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/beauty-ad.png" data-title="Beauty Ad">
-					<img src="assets/business-ad.png" alt="Business Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/business-ad.png" data-title="Business Ad">
-					<img src="assets/coffee-ad.png" alt="Coffee Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/coffee-ad.png" data-title="Coffee Ad">
-					<img src="assets/flower-ad.png" alt="Flower Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/flower-ad.png" data-title="Flower Ad">
-					<img src="assets/hiring-ad.png" alt="Hiring Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hiring-ad.png" data-title="Hiring Ad">
-					<img src="assets/hotel-ad.png" alt="Hotel Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hotel-ad.png" data-title="Hotel Ad">
-					<img src="assets/tech-ad.png" alt="Tech Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/tech-ad.png" data-title="Tech Ad">
+					<img src="assets/beauty-ad.png" alt="Beauty brand social media advertisement" loading="lazy" decoding="async" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/beauty-ad.png" data-title="Beauty Brand Advertisement">
+					<img src="assets/business-ad.png" alt="Business service advertisement design" loading="lazy" decoding="async" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/business-ad.png" data-title="Business Advertisement">
+					<img src="assets/coffee-ad.png" alt="Coffee shop promotional advertisement" loading="lazy" decoding="async" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/coffee-ad.png" data-title="Coffee Advertisement">
+					<img src="assets/flower-ad.png" alt="Flower shop promotional advertisement" loading="lazy" decoding="async" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/flower-ad.png" data-title="Flower Shop Advertisement">
+					<img src="assets/hiring-ad.png" alt="Job hiring social media advertisement" loading="lazy" decoding="async" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hiring-ad.png" data-title="Hiring Advertisement">
+					<img src="assets/hotel-ad.png" alt="Hotel booking promotional advertisement" loading="lazy" decoding="async" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/hotel-ad.png" data-title="Hotel Advertisement">
+					<img src="assets/tech-ad.png" alt="Technology product social media advertisement" loading="lazy" decoding="async" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/tech-ad.png" data-title="Technology Advertisement">
 				</div>
-				<div class="tile-meta">Different brand ad campaigns, Mostly designed in Canva and Photoshop.</div>
+				<div class="tile-meta">Brand campaign designs for beauty, hospitality, food, recruitment, and technology.</div>
 			</div>
 			<div id="web-designs" class="showcase">
-				<h4>Web Designs/Landing Page Samples</h4>
+				<h4>Web Designs / Landing Page Samples</h4>
 				<div class="web-gallery">
-					<img src="assets/portfolio-design.png" alt="Port Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/portfolio-design.png" data-title="Portfolio Design Created using HTML/CSS/JS">
-					<img src="assets/wix-design.png" alt="Wix Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/wix-design.png" data-title="Landing Page created using Wix">
-					<img src="assets/figma-designs.png" alt="Figma Ad" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/figma-designs.png" data-title="Figma Web Design Samples">
+					<img src="assets/portfolio-design.png" alt="Portfolio website design created with HTML, CSS, and JavaScript" loading="lazy" decoding="async" tabindex="0" role="button" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/portfolio-design.png" data-title="HTML, CSS & JavaScript Portfolio">
+					<img src="assets/wix-design.png" alt="Landing page website design created in Wix" loading="lazy" decoding="async" tabindex="0" role="button" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/wix-design.png" data-title="Wix Landing Page">
+					<img src="assets/figma-designs.png" alt="Responsive web interface designs created in Figma" loading="lazy" decoding="async" tabindex="0" role="button" data-bs-toggle="modal" data-bs-target="#adModal" data-img="assets/figma-designs.png" data-title="Figma Web Design Samples">
 				</div>
 				<div class="tile-meta">Web design samples created using various tools and frameworks.</div>
 			</div>
@@ -343,23 +312,15 @@
 
 	<section class="contact" id="contact">
 		<div class="container">
-		<h3 class="fade-in">Contact</h3>
-		<p class="fade-in">Available for Freelance/Part-time or Full-time work.</p>
-		<p>Email: <a href="mailto:kemkylepaez@gmail.com">kemkylepaez@gmail.com</a></p>
-		<p class="fade-in" style="text-align:center;">You can also find me on these sites</p>
+		<h3 class="fade-in">Let’s create something impactful</h3>
+		<p class="fade-in">Available for freelance, part-time, and full-time creative roles.</p>
+		<p class="contact-email">Email: <a href="mailto:kemkylepaez@gmail.com">kemkylepaez@gmail.com</a></p>
+		<p class="fade-in contact-intro">Connect with me on</p>
 		<div class="socials">
-			<a href="https://www.linkedin.com/in/kemuelpaez/" target="_blank" rel="noopener noreferrer">
-				<i class="fab fa-linkedin"></i> LinkedIn
-			</a>
-			<a href="https://wa.me/09288402135" target="_blank" rel="noopener noreferrer">
-				<i class="fab fa-whatsapp"></i> WhatsApp
-			</a>
-			<a href="https://www.facebook.com/Kem.Jong.Un.Boy/" target="_blank" rel="noopener noreferrer">
-				<i class="fab fa-facebook"></i> Facebook
-			</a>
-			<a href="https://www.instagram.com/kempazee/" target="_blank" rel="noopener noreferrer">
-				<i class="fab fa-instagram"></i> Instagram
-			</a>
+			<a href="https://www.linkedin.com/in/kemuelpaez/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+			<a href="https://wa.me/09288402135" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+			<a href="https://www.facebook.com/Kem.Jong.Un.Boy/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a>
+			<a href="https://www.instagram.com/kempazee/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a>
 		</div>
 		</div>
 	</section>
@@ -367,20 +328,20 @@
 
 	<footer class="site-footer">
 	<div class="container">
-		<small>© <span id="year"></span> Kemuel Kyle Paez ~ Designer</small>
+		<small>© <span id="year"></span> Kemuel Kyle Paez · Creative Portfolio</small>
 	</div>
 	</footer>
 
 	<!-- Ad Modal -->
 	<div class="modal fade" id="adModal" tabindex="-1" aria-labelledby="adModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="adModalLabel">Ad Design</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		<div class="modal-dialog modal-dialog-centered modal-lg portfolio-modal-dialog">
+			<div class="modal-content portfolio-modal-content">
+				<div class="modal-header portfolio-modal-header">
+					<h5 class="modal-title" id="adModalLabel">Project preview</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close project preview"></button>
 				</div>
-				<div class="modal-body">
-					<img id="modalImage" src="" alt="Ad Image" class="img-fluid">
+				<div class="modal-body portfolio-modal-body">
+					<img id="modalImage" src="assets/portfolio-design.png" alt="Selected project preview" class="img-fluid" width="1200" height="800">
 				</div>
 			</div>
 		</div>
@@ -388,14 +349,14 @@
 
 	<!-- Video Modal -->
 	<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="videoModalLabel"></h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		<div class="modal-dialog modal-dialog-centered modal-sm portfolio-modal-dialog video-modal-dialog">
+			<div class="modal-content portfolio-modal-content video-modal-content">
+				<div class="modal-header portfolio-modal-header">
+					<h5 class="modal-title" id="videoModalLabel">Video preview</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close video preview"></button>
 				</div>
-				<div class="modal-body">
-					<video id="modalVideo" controls class="img-fluid" style="width: 100%; height: auto;"></video>
+				<div class="modal-body portfolio-modal-body video-modal-body">
+					<video id="modalVideo" controls playsinline preload="metadata" aria-label="Selected video project"></video>
 				</div>
 			</div>
 		</div>
@@ -404,32 +365,6 @@
 	<!-- Bootstrap JS bundle -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="script.js"></script>
-
-	<script>
-		(function () {
-			function offsetAndScroll(targetId) {
-				var target = document.getElementById(targetId);
-				if (!target) return;
-				// account for header height (if fixed)
-				var header = document.querySelector('.site-header');
-				var headerHeight = header ? header.offsetHeight : 0;
-				var rect = target.getBoundingClientRect();
-				var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-				var targetY = rect.top + scrollTop - headerHeight - 20;
-				window.scrollTo({ top: targetY, behavior: 'smooth' });
-			}
-
-			document.addEventListener('DOMContentLoaded', function () {
-				var buttons = document.querySelectorAll('.project-btn[data-target]');
-				buttons.forEach(function (btn) {
-					btn.addEventListener('click', function () {
-						var targetId = btn.getAttribute('data-target');
-						offsetAndScroll(targetId);
-					});
-				});
-			});
-		})();
-	</script>
 
 </body>
 </html>

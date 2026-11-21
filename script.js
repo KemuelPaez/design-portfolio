@@ -1,93 +1,145 @@
+document.documentElement.classList.add('js');
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-	a.addEventListener('click', e=>{
-		const href = a.getAttribute('href');
-		if(href.length>1){
-		e.preventDefault();
-		const el = document.querySelector(href);
-		if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-		}
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function scrollToTarget(target) {
+	if (!target) return;
+	const header = document.querySelector('.site-header');
+	const headerHeight = header ? header.offsetHeight : 0;
+	const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+	window.scrollTo({ top, behavior: reducedMotion ? 'auto' : 'smooth' });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+	link.addEventListener('click', (event) => {
+		const href = link.getAttribute('href');
+		if (!href || href === '#') return;
+		const target = document.querySelector(href);
+		if (!target) return;
+		event.preventDefault();
+		scrollToTarget(target);
+		history.replaceState(null, '', href);
 	});
 });
 
-// Typewriter effect for the header name and titles
-function typeWriter(el, text, speed = 120) {
-	let i = 0;
-	el.textContent = '';
-	const timer = setInterval(() => {
-		el.textContent += text.charAt(i);
-		i++;
-		if (i >= text.length) {
-			clearInterval(timer);
-		}
-	}, speed);
-}
+document.querySelectorAll('.project-btn[data-target]').forEach((button) => {
+	button.addEventListener('click', () => {
+		const target = document.getElementById(button.dataset.target);
+		scrollToTarget(target);
+	});
+});
 
-const twName = document.getElementById('typewriter-name');
-const twTitles = document.getElementById('typewriter-titles');
-if (twName && twTitles) {
-	const name = twName.getAttribute('data-name') || 'Your Name';
-	const titles = twTitles.getAttribute('data-titles') || '';
-	setTimeout(() => {
-		typeWriter(twName, name, 60);
-		setTimeout(() => typeWriter(twTitles, titles, 30), name.length * 50 + 200);
-	}, 600);
+// Progressive typewriter effect; content remains visible if JavaScript is unavailable.
+if (!reducedMotion) {
+	const twName = document.getElementById('typewriter-name');
+	const twTitles = document.getElementById('typewriter-titles');
+	if (twName && twTitles) {
+		const name = twName.dataset.name || 'Kemuel Kyle Paez';
+		const titles = twTitles.dataset.titles || '';
+		twName.textContent = '';
+		twTitles.textContent = '';
+		let nameIndex = 0;
+		const nameTimer = window.setInterval(() => {
+			if (nameIndex < name.length) {
+				twName.textContent += name[nameIndex++];
+			} else {
+				window.clearInterval(nameTimer);
+				let titleIndex = 0;
+				const titleTimer = window.setInterval(() => {
+					if (titleIndex < titles.length) {
+						twTitles.textContent += titles[titleIndex++];
+					} else {
+						window.clearInterval(titleTimer);
+					}
+				}, 30);
+			}
+		}, 60);
+	}
 }
 
 // Scroll-triggered fade-in animations
-const observerOptions = {
-	root: null,
-	rootMargin: '0px',
-	threshold: 0.1
-};
+if ('IntersectionObserver' in window) {
+	const observer = new IntersectionObserver((entries, activeObserver) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.querySelectorAll('.fade-in').forEach((element) => element.classList.add('visible'));
+				activeObserver.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
 
-const observer = new IntersectionObserver((entries) => {
-	entries.forEach(entry => {
-		if (entry.isIntersecting) {
-			const fadeIns = entry.target.querySelectorAll('.fade-in');
-			fadeIns.forEach(el => el.classList.add('visible'));
-		}
-	});
-}, observerOptions);
+	document.querySelectorAll('section').forEach((section) => observer.observe(section));
+} else {
+	document.querySelectorAll('.fade-in').forEach((element) => element.classList.add('visible'));
+}
 
-// Observe each section
-const sections = document.querySelectorAll('section');
-sections.forEach(section => {
-	observer.observe(section);
-});
-
-// Hamburger menu toggle
+// Accessible mobile navigation
 const hamburger = document.getElementById('hamburger');
 const modalNav = document.getElementById('modal-nav');
 const closeModal = document.getElementById('close-modal');
 
-if (hamburger && modalNav) {
+function openMenu() {
+	modalNav.classList.add('active');
+	modalNav.setAttribute('aria-hidden', 'false');
+	hamburger.setAttribute('aria-expanded', 'true');
+	hamburger.setAttribute('aria-label', 'Close navigation');
+	document.body.style.overflow = 'hidden';
+	closeModal?.focus();
+}
+
+function closeMenu({ restoreFocus = true } = {}) {
+	modalNav.classList.remove('active');
+	modalNav.setAttribute('aria-hidden', 'true');
+	hamburger.setAttribute('aria-expanded', 'false');
+	hamburger.setAttribute('aria-label', 'Open navigation');
+	document.body.style.overflow = '';
+	if (restoreFocus) hamburger.focus();
+}
+
+if (hamburger && modalNav && closeModal) {
 	hamburger.addEventListener('click', () => {
-		modalNav.classList.add('active');
+		modalNav.classList.contains('active') ? closeMenu() : openMenu();
+	});
+	closeModal.addEventListener('click', () => closeMenu());
+	modalNav.addEventListener('click', (event) => {
+		if (event.target === modalNav) closeMenu();
+		if (event.target.closest('a[href^="#"]')) closeMenu({ restoreFocus: false });
 	});
 
-	// Close modal when clicking close button
-	if (closeModal) {
-		closeModal.addEventListener('click', () => {
-			modalNav.classList.remove('active');
-		});
-	}
-
-	// Close modal when clicking outside content
-	modalNav.addEventListener('click', (e) => {
-		if (e.target === modalNav) {
-			modalNav.classList.remove('active');
-		}
-	});
-
-	// Close modal when clicking a link
-	modalNav.addEventListener('click', (e) => {
-		if (e.target.tagName === 'A') {
-			modalNav.classList.remove('active');
+	document.addEventListener('keydown', (event) => {
+		if (!modalNav.classList.contains('active')) return;
+		if (event.key === 'Escape') closeMenu();
+		if (event.key === 'Tab') {
+			const focusable = [...modalNav.querySelectorAll('button, a[href]')].filter((element) => !element.disabled);
+			if (!focusable.length) return;
+			const first = focusable[0];
+			const last = focusable[focusable.length - 1];
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+			} else if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
 		}
 	});
 }
+
+// Make gallery media keyboard-operable and give previews meaningful labels.
+document.querySelectorAll('[data-bs-target="#adModal"], [data-bs-target="#videoModal"]').forEach((media) => {
+	if (!media.hasAttribute('tabindex')) media.setAttribute('tabindex', '0');
+	media.setAttribute('role', 'button');
+	const title = media.dataset.title || 'Open project preview';
+	media.setAttribute('aria-label', `${title}: open preview`);
+	media.addEventListener('keydown', (event) => {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			media.click();
+		}
+	});
+});
 
 // Ad modal functionality
 const adModal = document.getElementById('adModal');
@@ -96,10 +148,11 @@ const adModalLabel = document.getElementById('adModalLabel');
 
 if (adModal && modalImage && adModalLabel) {
 	adModal.addEventListener('show.bs.modal', (event) => {
-		const button = event.relatedTarget;
-		const imgSrc = button.getAttribute('data-img');
-		const adTitle = button.getAttribute('data-title');
-		modalImage.src = imgSrc;
+		const trigger = event.relatedTarget;
+		const imgSrc = trigger?.getAttribute('data-img');
+		const adTitle = trigger?.getAttribute('data-title') || 'Project preview';
+		if (imgSrc) modalImage.src = imgSrc;
+		modalImage.alt = adTitle;
 		adModalLabel.textContent = adTitle;
 	});
 }
@@ -111,17 +164,18 @@ const videoModalLabel = document.getElementById('videoModalLabel');
 
 if (videoModal && modalVideo && videoModalLabel) {
 	videoModal.addEventListener('show.bs.modal', (event) => {
-		const button = event.relatedTarget;
-		const videoSrc = button.getAttribute('data-video');
-		const videoTitle = button.getAttribute('data-title');
-		modalVideo.src = videoSrc;
+		const trigger = event.relatedTarget;
+		const videoSrc = trigger?.getAttribute('data-video');
+		const videoTitle = trigger?.getAttribute('data-title') || 'Video preview';
+		if (videoSrc) modalVideo.src = videoSrc;
 		videoModalLabel.textContent = videoTitle;
-		modalVideo.play();
+		modalVideo.setAttribute('aria-label', videoTitle);
 	});
 
-	videoModal.addEventListener('hide.bs.modal', () => {
+	videoModal.addEventListener('hidden.bs.modal', () => {
 		modalVideo.pause();
-		modalVideo.src = '';
+		modalVideo.removeAttribute('src');
+		modalVideo.load();
 	});
 }
 
@@ -135,23 +189,22 @@ document.querySelectorAll('.reel-gallery-wrapper').forEach(wrapper => {
 	const getScrollDistance = () => Math.max(track.clientWidth * 0.8, 300);
 
 	const updateButtons = () => {
-		// small delay to ensure smooth scroll updated
-		setTimeout(() => {
-			btnLeft.disabled = track.scrollLeft <= 5;
-			btnRight.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
-			btnLeft.style.opacity = btnLeft.disabled ? '0.35' : '1';
-			btnRight.style.opacity = btnRight.disabled ? '0.35' : '1';
-		}, 120);
+		window.requestAnimationFrame(() => {
+			const atStart = track.scrollLeft <= 5;
+			const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
+			btnLeft.disabled = atStart;
+			btnRight.disabled = atEnd;
+			btnLeft.style.opacity = atStart ? '0.35' : '1';
+			btnRight.style.opacity = atEnd ? '0.35' : '1';
+		});
 	};
 
 	btnLeft.addEventListener('click', () => {
-		track.scrollBy({ left: -getScrollDistance(), behavior: 'smooth' });
-		updateButtons();
+		track.scrollBy({ left: -getScrollDistance(), behavior: reducedMotion ? 'auto' : 'smooth' });
 	});
 
 	btnRight.addEventListener('click', () => {
-		track.scrollBy({ left: getScrollDistance(), behavior: 'smooth' });
-		updateButtons();
+		track.scrollBy({ left: getScrollDistance(), behavior: reducedMotion ? 'auto' : 'smooth' });
 	});
 
 	// Update when user scrolls with wheel/trackpad
